@@ -1,0 +1,45 @@
+<!-- multistep form -->
+<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+<div id="msform">
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li>Sender Details</li>
+    <li>Receiver Details</li>
+    <li class="active">Transaction</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+    <h2>Transfer Details</h2>
+    <br>
+      
+<label for="ttype">Transfer type  </label>
+<select name="ttype" id="ttype" [(ngModel)]="transferType" (ngModelChange)="matchTransferType()">
+  <option value="" disabled selected hidden>Select your option</option>
+  <option value="customer">Customers</option>
+  <option value="bank">Bank</option>
+</select>
+<br>
+<br>
+<label>Message Code  </label>
+<br>
+<select  [(ngModel)]="msgCode" (ngModelChange)="checkAllFields()">
+  <option value="" disabled selected hidden>Select your option</option>
+  <option value="c1">CHQB</option>
+  <option value="c2">CORT</option>
+  <option value="c2">HOLD</option>
+  <option value="c2">INTC</option>
+  <option value="c2">PHOB</option>
+  <option value="c2">PHOI</option>
+  <option value="c2">PHON</option>
+  <option value="c2">REPA</option>
+  <option value="c2">SDVA</option>
+</select>
+<br>
+<br>
+<label>Enter Transfer Amount</label>
+<br>
+<input type="text" [(ngModel)]="transferAmount" appOnlyNumber (ngModelChange)="checkAllFields()">
+<br>
+<button class="btn btn-success" (click)="transferBalance()" [disabled]="isDisabledTransfer">Transfer</button>
+  </fieldset>
+</div>
