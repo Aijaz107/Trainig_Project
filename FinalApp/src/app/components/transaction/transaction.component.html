@@ -1,0 +1,56 @@
+<!-- multistep form -->
+<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+<div id="msform">
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li>Sender Details</li>
+    <li>Receiver Details</li>
+    <li class="active">Transaction</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+    <h2>Transaction Details</h2>
+    <br>
+  
+<label for="curr">Currency </label>
+<br>
+<select name="curr" id="curr" [(ngModel)]="currencyCode" (ngModelChange)="updateCurrencyCode()">
+  <option value="" disabled selected hidden>Select your option</option>
+  <option value="INR">INR</option>
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
+  <option value="GBP">GBP</option>
+  <option value="JPY">JPY</option>
+</select>    
+<br><br>
+<label for="ttype">Transfer type  </label>
+<select name="ttype" id="ttype" [(ngModel)]="transferType" (ngModelChange)="matchTransferType()">
+  <option value="" disabled selected hidden>Select your option</option>
+  <option value="Customer Transfer">Customers</option>
+  <option value="Bank Transfer">Bank</option>
+</select>
+<br>
+<br>
+<label>Message Code  </label>
+<br>
+<select  [(ngModel)]="msgCode" (ngModelChange)="checkAllFields()">
+  <option value="" disabled selected hidden>Select your option</option>
+  <option value="CHQB">CHQB</option>
+  <option value="CORT">CORT</option>
+  <option value="HOLD">HOLD</option>
+  <option value="INTC">INTC</option>
+  <option value="PHOB">PHOB</option>
+  <option value="PHOI">PHOI</option>
+  <option value="PHON">PHON</option>
+  <option value="REPA">REPA</option>
+  <option value="SDVA">SDVA</option>
+</select>
+<br>
+<br>
+<label>Enter Transfer Amount</label>
+<br>
+<input type="text" [(ngModel)]="transferAmount" appOnlyNumber (ngModelChange)="checkAllFields()">
+<br>
+<button class="btn btn-success" (click)="transferBalance()" [disabled]="isDisabledTransfer">Transfer</button>
+  </fieldset>
+</div>
