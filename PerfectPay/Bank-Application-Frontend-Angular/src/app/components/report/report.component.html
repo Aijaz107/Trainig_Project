@@ -1,0 +1,34 @@
+<!-- multistep form -->
+<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+<div id="msform">
+    <!-- progressbar -->
+    
+    <!-- fieldsets -->
+    <fieldset>
+      <h2>Transaction Report</h2>
+    <br>
+    <div style="text-align: left;">
+
+    <p style="text-align: center;"><b>{{tData.transferDate | date: 'dd-MM-yyyy'}}</b></p>
+    <p style="text-align: center;">Transactoin ID : <b>{{tData.transactionId}}</b></p>
+    <hr>
+    <br>
+    <p>Account No: <b>{{tData.customer.customerId}}</b></p>
+    <p>Acc Holder: <b>{{tData.customer.accountHolderName}}</b></p>
+    <p>Balance: <b>{{tData.customer.clearBalance}} INR</b></p>
+    <p>Fee : <b>{{tData.transferFees}} INR</b></p>
+    <hr>
+    <br>
+    <p>Rcvr Name: <b>{{tData.receiverAccountHolderName}}</b></p>
+    <p>Rcvr Acc: <b>{{tData.receiverAccountHolderNumber}}</b></p>
+    <p>Bic : <b>{{tData.receiverBank.bic}}</b></p>
+    <p>Bank : <b>{{tData.receiverBank.bankName}}</b></p>
+    <p>Rcvd Balance: <b>{{tData.inrAmount}}{{" "}}{{tData.currency.currencyCode}}</b></p>
+    <p>Message: <b>{{tData.message.instruction}}</b></p>
+
+    </div>
+    <!-- <h4>Account Number:{{}}</h4> -->
+
+  <button class="btn btn-success" (click)="close()" >Done</button>
+    </fieldset>
+  </div>
